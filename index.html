@@ -106,6 +106,22 @@
       .footer-row{flex-direction:column}.book{width:260px}
     }
   </style>
+
+  <style>
+    .about-copy p{line-height:1.8}
+    .contact a{color:#e0bb8c;text-decoration:underline;text-underline-offset:3px}
+    .contact form label{font-size:.78rem;color:#d4c8bb;letter-spacing:.04em}
+    .form-note{color:#bdb4aa;font-size:.75rem;line-height:1.5}
+    .newsletter{background:#eee6d9;padding:100px 0;text-align:center}
+    .newsletter-inner{max-width:780px}
+    .newsletter-inner h2{margin:20px 0}
+    .newsletter-inner p{color:#6f6860;max-width:650px;margin:0 auto 26px}
+    .newsletter-form{display:grid;grid-template-columns:1fr auto;gap:12px;max-width:650px;margin:0 auto 14px}
+    .newsletter-form input{background:#fffdf9;border-color:#d9d0c4;color:#1c1a18;min-height:52px}
+    .newsletter .form-note{color:#6f6860}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    @media(max-width:600px){.newsletter-form{grid-template-columns:1fr}.newsletter{padding:75px 0}}
+  </style>
 </head>
 <body>
 <header>
@@ -113,7 +129,7 @@
     <a class="brand" href="#home">Muhammad Sow<small>Author & Storyteller</small></a>
     <button class="menu" aria-label="Open menu">☰</button>
     <div class="navlinks">
-      <a href="#about">About</a><a href="#book">The Book</a><a href="#writing">Writing</a><a href="#contact">Contact</a>
+      <a href="#about">About</a><a href="#book">The Book</a><a href="#writing">Writing</a><a href="#contact">Contact</a><a href="#newsletter">Newsletter</a>
     </div>
   </nav>
 </header>
@@ -153,8 +169,18 @@
     <div class="about-copy reveal">
       <div class="eyebrow">About the author</div>
       <h2>From pain to purpose.</h2>
-      <p>Muhammad Sow is the author of <em>A Thousand Miles of Tears: My Journey From Ashes to Light</em>, a deeply personal account of hardship, resilience, transformation, and hope.</p>
-      <p>His writing explores the roads we never expected to travel, the wounds we carry, and the strength that can emerge when we choose to keep walking.</p>
+      <p>My name is Muhammad Sow. I’m 24, and I’m still figuring life out.</p>
+      <p>I’ve always been someone who thinks a lot, sometimes probably more than I should. I notice the little things: conversations, changes in people, quiet moments, and feelings that are easy to overlook. I think that’s one of the reasons I ended up writing.</p>
+      <p>I write about love, heartbreak, loneliness, family, growing up, and the complicated parts of being human. I’m interested in the moments that don’t always look important when they happen, but somehow stay with us for years.</p>
+      <p>I don’t really believe people are meant to have everything figured out. I think we’re all learning as we go. We make mistakes, lose people, fall in love, get hurt, change, and sometimes have to start over.</p>
+      <p>That’s what I try to put into my writing.</p>
+      <p>My first book, <em>A Thousand Miles of Tears: My Journey From Ashes to Light</em>, is a deeply personal account of hardship, resilience, transformation, and hope. Through it, I explore the roads I never expected to travel, the wounds I’ve carried, and the strength I’ve discovered by choosing to keep walking.</p>
+      <p>I don’t want my characters to feel perfect. I want them to feel like people. People who say the wrong thing sometimes. People who are scared but still stay. People who love each other but don’t always know how to show it. People who carry things quietly and keep going anyway.</p>
+      <p><em>The Parts We Don’t Fix</em> is probably the best example of that. It’s a story about love, but underneath that, it’s about life itself. It’s about the things we can change, the things we can’t, the people who shape us, and learning that not everything broken needs to be repaired.</p>
+      <p>Sometimes, we just have to learn how to live with it.</p>
+      <p>And maybe that’s something I’m still learning too.</p>
+      <p>Writing has become one of the ways I make sense of all those things. It allows me to turn experiences, questions, pain, hope, and the things I don’t always know how to say into something that might reach someone else.</p>
+      <p><strong>This is the story I’m still writing.</strong></p>
       <div class="signature">Muhammad Sow</div>
       <a class="btn" href="#contact">Connect With Me</a>
     </div>
@@ -173,7 +199,7 @@
         <div class="detail"><b>Theme</b>Resilience & Hope</div>
         <div class="detail"><b>Format</b>Print / Digital</div>
       </div>
-      <a class="btn gold" href="#contact">Book / Enquiry</a>
+      <div class="actions"><a class="btn gold" href="https://a.co/d/060i9e6z" target="_blank" rel="noopener noreferrer">Buy the Book on Amazon</a><a class="btn" href="#contact">Contact Muhammad</a></div>
     </div>
   </div>
 </section>
@@ -199,17 +225,34 @@
 
 <section class="contact" id="contact">
   <div class="container contact-grid">
-    <div class="reveal"><div class="eyebrow">Stay connected</div><h2>Let’s keep the story going.</h2><p>For readers, speaking opportunities, interviews, book enquiries, or simply to share a message, use the form.</p><div class="actions"><a class="btn" href="mailto:hello@muhammadsow.com">Email Muhammad</a></div></div>
-    <form class="reveal" onsubmit="event.preventDefault(); alert('Thank you. Your message form is ready to connect to your preferred email service.');">
-      <input type="text" name="name" placeholder="Your name" required>
-      <input type="email" name="email" placeholder="Your email" required>
-      <textarea name="message" placeholder="Your message" required></textarea>
+    <div class="reveal"><div class="eyebrow">Get in touch</div><h2>Let’s keep the story going.</h2>
+      <p>I’d love to hear from readers, writers, and anyone who connects with my work. For interviews, book enquiries, or a simple hello, please get in touch.</p>
+      <p><strong>Email:</strong> <a href="mailto:muhammadsow8189@gmail.com">muhammadsow8189@gmail.com</a></p>
+      <p><strong>Instagram:</strong> <a href="https://www.instagram.com/deno_sall?stkn=ajN3M3FzZTBobHQ0" target="_blank" rel="noopener noreferrer">@deno_sall · Follow Me on Instagram</a></p>
+    </div>
+    <form class="reveal" id="contact-form">
+      <label for="contact-name">Your name</label><input id="contact-name" type="text" name="name" placeholder="Your name" required>
+      <label for="contact-email">Your email</label><input id="contact-email" type="email" name="email" placeholder="Your email address" required>
+      <label for="contact-message">Your message</label><textarea id="contact-message" name="message" placeholder="Your message" required></textarea>
       <button class="btn gold" type="submit">Send Message</button>
+      <small class="form-note">Your email app will open with your message ready to send.</small>
     </form>
   </div>
 </section>
 </main>
 
+<section class="newsletter" id="newsletter">
+  <div class="container newsletter-inner reveal">
+    <div class="eyebrow">Stay connected</div><h2>Letters from Muhammad.</h2>
+    <p>Receive book updates, new writing, upcoming projects, events, and announcements from Muhammad Sow.</p>
+    <form id="newsletter-form" class="newsletter-form">
+      <label class="sr-only" for="newsletter-email">Your email address</label>
+      <input id="newsletter-email" type="email" name="email" placeholder="Your email address" required>
+      <button class="btn gold" type="submit">Join the Newsletter</button>
+    </form>
+    <small class="form-note">For now, signing up opens an email draft. Automated subscriptions will require a newsletter service.</small>
+  </div>
+</section>
 <footer><div class="container footer-row"><span>© 2026 Muhammad Sow. All rights reserved.</span><span>A Thousand Miles of Tears</span></div></footer>
 <script>
   const menu=document.querySelector('.menu'), links=document.querySelector('.navlinks');
@@ -217,6 +260,22 @@
   document.querySelectorAll('.navlinks a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
   const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+  document.getElementById('contact-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    const name=document.getElementById('contact-name').value.trim();
+    const email=document.getElementById('contact-email').value.trim();
+    const message=document.getElementById('contact-message').value.trim();
+    const subject=encodeURIComponent('Website message from '+name);
+    const body=encodeURIComponent('Name: '+name+'\nEmail: '+email+'\n\n'+message);
+    window.location.href='mailto:muhammadsow8189@gmail.com?subject='+subject+'&body='+body;
+  });
+  document.getElementById('newsletter-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    const email=document.getElementById('newsletter-email').value.trim();
+    const subject=encodeURIComponent('Newsletter signup');
+    const body=encodeURIComponent('Please add this email address to Muhammad Sow’s newsletter: '+email);
+    window.location.href='mailto:muhammadsow8189@gmail.com?subject='+subject+'&body='+body;
+  });
 </script>
 </body>
 </html>
